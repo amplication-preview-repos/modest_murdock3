@@ -49,6 +49,17 @@ class UserCreateInput {
   password!: string;
 
   @ApiProperty({
+    required: false,
+    type: String,
+  })
+  @IsString()
+  @IsOptional()
+  @Field(() => String, {
+    nullable: true,
+  })
+  profileId?: string | null;
+
+  @ApiProperty({
     required: true,
   })
   @IsJSONValue()
